@@ -33,6 +33,7 @@ public class User {
 
 	@Column(unique = true)
 	private String email;
+	private String login;
 
 	@JsonIgnore
 	private String password;
@@ -50,12 +51,13 @@ public class User {
 	 * @param email
 	 * @param password
 	 */
-	public User(Integer id, String name, String email, String password) {
+	public User(Integer id, String name, String email, String password, String login) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.password = password;
+		this.login = login;
 	}
 
 	public void addProfile(ProfileEnum profile) {
@@ -67,6 +69,20 @@ public class User {
 	 */
 	public Set<ProfileEnum> getProfiles() {
 		return profiles.stream().map(p -> ProfileEnum.toEnum(p)).collect(Collectors.toSet());
+	}
+
+	/**
+	 * @return the login
+	 */
+	public String getLogin() {
+		return login;
+	}
+
+	/**
+	 * @param login the login to set
+	 */
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
 	/**
