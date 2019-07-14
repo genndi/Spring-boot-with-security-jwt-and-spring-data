@@ -59,7 +59,7 @@ public class User {
 		this.password = password;
 		this.login = login;
 	}
-
+	
 	public void addProfile(ProfileEnum profile) {
 		this.profiles.add(profile.getCode());
 	}

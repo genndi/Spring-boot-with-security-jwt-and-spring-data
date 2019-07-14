@@ -44,6 +44,10 @@ public class UserSpringSecurity implements UserDetails {
 				.collect(Collectors.toSet());
 	}
 
+	public boolean hasRole(ProfileEnum profile) {
+		return getAuthorities().contains(new SimpleGrantedAuthority(profile.getDescription()));
+	}
+
 	public Integer getId() {
 		return id;
 	}
