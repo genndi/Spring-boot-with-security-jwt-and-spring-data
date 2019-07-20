@@ -19,6 +19,8 @@ import com.enndi.authentication.security.UserSpringSecurity;
 import com.enndi.authentication.services.AuthService;
 import com.enndi.authentication.services.UserService;
 
+import io.swagger.annotations.ApiOperation;
+
 /**
  * @author gustavo
  *
@@ -33,6 +35,7 @@ public class AuthRest {
 	@Autowired
 	private AuthService authService;
 
+	@ApiOperation(value = "Renova o token")
 	@RequestMapping(value = "/refresh_token", method = RequestMethod.POST)
 	public ResponseEntity<Void> refreshToken(HttpServletResponse response) {
 		UserSpringSecurity userSpringSecurity = UserService.authenticated();
@@ -42,6 +45,7 @@ public class AuthRest {
 		return ResponseEntity.noContent().build();
 	}
 
+	@ApiOperation(value = "Recupera a senha")
 	@RequestMapping(value = "/forgot", method = RequestMethod.POST)
 	public ResponseEntity<Void> forgot(@Valid @RequestBody EmailDTO emailDTO) {
 		authService.sendNewPassword(emailDTO.getEmail());
