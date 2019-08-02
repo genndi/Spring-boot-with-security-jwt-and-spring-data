@@ -9,6 +9,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -22,6 +24,8 @@ import com.google.gson.JsonObject;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
+	private static final Logger LOG = LoggerFactory.getLogger(JWTAuthenticationFilter.class);
+	
 	private AuthenticationManager authenticationManager;
 
 	private JWTUtil jwtUtil;
@@ -42,12 +46,16 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		try {
 			CredentialsDTO creds = new ObjectMapper().readValue(request.getInputStream(), CredentialsDTO.class);
 
+			LOG.debug(creds.toString());
+			
 			UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(creds.getLogin(),
 					creds.getPassword(), new ArrayList<>());
 
 			Authentication authentication = authenticationManager.authenticate(authToken);
+			LOG.debug(authentication.toString());
 			return authentication;
 		} catch (IOException e) {
+			LOG.error(e.getMessage());
 			throw new RuntimeException(e);
 		}
 	}

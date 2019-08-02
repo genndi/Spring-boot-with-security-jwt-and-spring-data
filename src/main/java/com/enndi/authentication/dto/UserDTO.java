@@ -17,6 +17,17 @@ public class UserDTO {
 
 	private String login;
 
+	public UserDTO() {
+	}
+
+	public UserDTO(String name, String email, String password, String login) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.password = password;
+		this.login = login;
+	}
+
 	/**
 	 * @return the login
 	 */

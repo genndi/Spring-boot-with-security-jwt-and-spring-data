@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @author gustavo
  *
  */
-public class CredentialsDTO implements Serializable{
+public class CredentialsDTO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -18,7 +18,7 @@ public class CredentialsDTO implements Serializable{
 
 	public CredentialsDTO() {
 	}
-	
+
 	/**
 	 * @return the login
 	 */
@@ -46,4 +46,10 @@ public class CredentialsDTO implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	@Override
+	public String toString() {
+		return "CredentialsDTO [login=" + login + ", password=" + password + "]";
+	}
+
 }

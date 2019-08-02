@@ -59,7 +59,7 @@ public class User {
 		this.password = password;
 		this.login = login;
 	}
-	
+
 	public void addProfile(ProfileEnum profile) {
 		this.profiles.add(profile.getCode());
 	}
@@ -122,6 +122,11 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	@Override
+	public String toString() {
+		return "User [name=" + name + ", login=" + login + ", password=" + password + ", profiles=" + profiles + "]";
 	}
 
 }

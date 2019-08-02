@@ -1,8 +1,8 @@
-FROM adoptopenjdk/openjdk11:latest
+FROM openjdk:11
+
 LABEL maintainer="Gustavo"
 
 VOLUME /tmp
-
 
 EXPOSE 8080
 
