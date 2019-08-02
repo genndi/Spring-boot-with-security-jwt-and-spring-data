@@ -1,4 +1,4 @@
-# Spring-boot-with-security-jwt-and-spring-data
+# Spring Boot with Security JWT Token and Spring Data
  Base project for web applications with spring boot, spring security with JWT and spring data
 
 ## Source
