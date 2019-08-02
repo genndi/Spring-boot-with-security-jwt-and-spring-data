@@ -1,18 +1,18 @@
-#Spring Boot with Security JWT Token and Spring Data
+# Spring Boot with Security JWT Token and Spring Data
  Base project for web applications with spring boot, spring security with JWT and spring data
 
-#Build:
+# Build:
 * Java: 11
 * Spring Boot: 2.1.6.RELEASE
 * jjwt: 0.9.1
 * spotify: 1.4.9
 
 
-#Requirements:
+# Requirements:
 * JDK >= 11
 
 
-#Task List
+# Task List
 
 - [X] Implementar o filtro de Autenticação
 - [X] Implementar o filtro de Autorização
